@@ -9,11 +9,11 @@ A Python-based inventory reconciliation system for e-commerce operations. Proces
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 project/
-├── 📂 data/
+├── data/
 │   ├── inventory.csv              # Master product inventory
 │   └── sales_transactions.csv    # Daily sales transactions
 │
@@ -24,11 +24,11 @@ project/
 ├── reporter.py                   # CSV & JSON report generator
 ├── alerter.py                    # Email alert system
 │
-├── 📂 tests/
+├── tests/
 │   ├── test_sales_aggregator.py  # Sales aggregation unit tests
 │   └── test_inventory_engine.py  # Inventory engine unit tests
 │
-├── 📂 logs/
+├── logs/
 │   └── inventory.log             # Auto-generated execution logs
 │
 ├── inventory_reconciliation.csv  # Output: Reconciled inventory
@@ -40,9 +40,9 @@ project/
 
 ---
 
-## ⚙️ Business Rules
+## Business Rules
 
-### 🔍 Sales Filtering
+### Sales Filtering
 | Rule | Action |
 |---|---|
 | Only April 2024 transactions | All others ignored |
@@ -50,14 +50,14 @@ project/
 | Negative `quantity_sold` | Skipped + logged |
 | Unknown `product_id` | Skipped + logged |
 
-### 📊 Stock Status Classification
+### Stock Status Classification
 | Final Stock | Status |
 |---|---|
-| `0` | ❌ `OUT_OF_STOCK` |
-| `1 – 10` | ⚠️ `LOW_STOCK` |
-| `> 10` | ✅ `AVAILABLE` |
+| `0` | `OUT_OF_STOCK` |
+| `1 – 10` | `LOW_STOCK` |
+| `> 10` | `AVAILABLE` |
 
-### 🧮 Key Calculations
+### Key Calculations
 ```
 final_stock       = current_stock - total_sold_quantity
 total_sales_value = total_sold_quantity × unit_price
@@ -66,7 +66,7 @@ total_sales_value = total_sold_quantity × unit_price
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - Python 3.9+
@@ -103,7 +103,7 @@ data/sales_transactions.csv
 
 ---
 
-## ▶️ Running the Application
+## Running the Application
 
 ```bash
 python main.py
@@ -154,7 +154,7 @@ total_sold_quantity | final_stock | stock_status | total_sales_value
 
 ---
 
-## 🧪 Running Tests
+## Running Tests
 
 ```bash
 # Run all tests
@@ -167,9 +167,9 @@ pytest test_sales_aggregator.py test_inventory_engine.py -v --cov=src --cov-repo
 ### Test Coverage
 | Test File | Tests | Status |
 |---|---|---|
-| `test_sales_aggregator.py` | 5 tests | ✅ Passing |
-| `test_inventory_engine.py` | 7 tests | ✅ Passing |
-| **Total** | **12 tests** | ✅ **12/12 Passing** |
+| `test_sales_aggregator.py` | 5 tests | Passing |
+| `test_inventory_engine.py` | 7 tests | Passing |
+| **Total** | **12 tests** | **12/12 Passing** |
 
 ### Test Cases
 **Sales Aggregation Tests**
@@ -192,7 +192,7 @@ pytest test_sales_aggregator.py test_inventory_engine.py -v --cov=src --cov-repo
 
 ---
 
-## 📈 Bonus: Streamlit Dashboard
+## Bonus: Streamlit Dashboard
 
 An interactive dashboard to visualize reconciliation results.
 
@@ -204,7 +204,7 @@ Opens at `http://localhost:8501`
 
 ---
 
-## 🔧 Input Data Format
+## Input Data Format
 
 ### inventory.csv
 | Column | Type | Description |
@@ -225,7 +225,7 @@ Opens at `http://localhost:8501`
 
 ---
 
-## ⚠️ Assumptions & Edge Cases
+## Assumptions & Edge Cases
 
 - **No Sales for a Product** → `total_sold_quantity = 0`, stock unchanged
 - **Overselling** → `final_stock` floored at `0`, STOCK_ERROR logged
@@ -236,7 +236,7 @@ Opens at `http://localhost:8501`
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 
 ```
 pandas
@@ -252,7 +252,7 @@ pip install -r requirements.txt
 
 ---
 
-## 👩‍💻 Author
+## Author
 
 **Arya Vinayaka Harwadekar**
 - GitHub: [@arya-vh](https://github.com/arya-vh)
@@ -260,6 +260,6 @@ pip install -r requirements.txt
 
 ---
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
